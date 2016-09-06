@@ -1,0 +1,61 @@
+//- ----------------------------------------------------------------
+//- 템플릿 확장
+//- 세부항목은 template/_docTemplate.jade 참조
+//- ----------------------------------------------------------------
+extends template/_docTemplate
+
+//- ----------------------------------------------------------------
+//- 환경설정 덮어쓰기
+//- 세부항목은 template/_config.jade 참조
+//- ----------------------------------------------------------------
+append config
+	//- 현재 페이지 URL 경로
+	-var curPage     = '/'
+	//- 문서 제목 <title>
+	-var pageTitle   = ""
+	//- 메타: 설명 <meta name="description">
+	-var description = ''
+	//- 메타: 키워드 <meta name="keywords">
+	-var keywords    = '야무, yamoo9, 책, book, 예제, example'
+
+//- ----------------------------------------------------------------
+//- <head> 영역: block 내용 앞(prepend)/뒤(append)에 내용 추가
+//- ----------------------------------------------------------------
+//- 페이지 타이틀 <title>
+prepend pageTitle
+append pageTitle
+
+//- 스타일시트 <link> & <style>
+prepend stylesheets
+append stylesheets
+
+//- 스크립트 <script>
+prepend headScripts
+append headScripts
+
+//- <body> 영역 끝, 스크립트 <script>
+prepend bodyEndScripts
+append bodyEndScripts
+
+//- ----------------------------------------------------------------
+//- <body> 영역: block 내용 앞(prepend)/뒤(append)에 내용 추가
+//- ----------------------------------------------------------------
+//- header 영역
+prepend header
+append header
+
+//- navigation 영역
+prepend navigation
+append navigation
+
+//- main 영역
+prepend main
+append main
+
+//- aside 영역
+prepend aside
+append aside
+
+//- footer 영역
+prepend footer
+append footer

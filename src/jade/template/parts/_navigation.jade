@@ -1,0 +1,50 @@
++navigation([
+	{
+		href: '/',
+		content: '홈'
+	}
+], {
+	id: 'gnb'
+}, {
+	class: 'depth1'
+})
+
+//- 사용법 아래 글을 읽어보세요.
+	+navigation(
+		[
+			{
+				nav>ul>li>a 속성설정,
+				liAttr      - nav>ul>li 속성설정(객체)
+				childUlAttr - nav>ul>li>a>ul 속성설정(객체),
+				child       - nav>ul>li>a>ul>li>a 속성설정(배열)
+			}
+		], 
+		{
+			nav 속성설정(객체)
+		},
+		{
+			nav>ul 속성설정(객체)
+		}
+	)
+
+	- 사용 예 -
+	+navigation(
+		[
+			{
+				href: '/depth1',
+				content: '상위 메뉴',
+				liAttr: {class: 'depth1-item'},
+				// 2Depth
+				childUlAttr: {class: 'depth2'}, 
+				child: [
+					{
+						href: '/depth1/depth2',
+						content: '하위 메뉴',
+						liAttr: {class: 'depth2-item'}
+					}
+				]
+			}
+		],
+		{id: 'gnb'},
+		{class: 'depth1'}
+	)

@@ -1,0 +1,23 @@
+//- ----------------------------------------------------------------
+//- 내비게이션(하위메뉴 포함)
+//- ----------------------------------------------------------------
+mixin navigation(contents, attr, ulAttr)
+	nav&attributes(attr?attr:{})
+		+makeList(contents, ulAttr?ulAttr:{})
+
+//- 메뉴리스트 생성
+mixin makeList(contents, attr)
+	ul&attributes(attr)
+		each item in contents
+			li&attributes(item.liAttr?item.liAttr:{})
+				+addItem(item)
+				if item.child
+					+makeList(item.child, item.childUlAttr)
+
+//- 메뉴아이템 생성
+mixin addItem(item)
+	a(
+		href=item.href?item.href:'#',
+		target=item.target?'_blank':false,
+		class=(curPage==item.href?'active':'')
+	)&attributes(item.attr?item.attr:false) #{item.content}

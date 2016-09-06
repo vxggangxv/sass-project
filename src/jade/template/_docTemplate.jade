@@ -1,0 +1,53 @@
+//- 환경설정(Configuration)
+block config
+	include _config
+
+//- 문서 시작
+include parts/_docHead
+	head
+		meta(http-equiv="X-UA-Compatible", content="IE="+iecompat)
+		meta(charset=encoding)
+		//- 문서 제목
+		title 
+			block pageTitle
+				| #{pageTitle}
+		//- 메타 요소
+		block metaElements
+			meta(name="description", content=description)
+			meta(name="keywords", content=keywords)
+			meta(name="author", content=author)
+			meta(name="viewport", content="width=device-width, initial-scale=1")
+		//- 스타일시트
+		block stylesheets
+			link(rel="stylesheet", href="css/style.css")
+			if fontawesome
+				link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/"+fontawesome_ver+"/css/font-awesome.min.css")
+		//- 스크립트(head)
+		block headScripts
+			if modernizr
+				script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/"+modernizr_ver+"/modernizr.min.js")
+			if detectizr
+				script(src="//cdnjs.cloudflare.com/ajax/libs/detectizr/"+detectizr_ver+"/detectizr.min.js")
+				//- 사용법은 .ref-detectizr 문서 참고
+				script.
+					Modernizr.Detectizr.detect();
+			if jquery
+				script(src="//ajax.googleapis.com/ajax/libs/jquery/"+jquery_ver+"/jquery.min.js")
+
+	body
+		//- 헤더 영역
+		block header
+			include parts/_header
+		//- 내비게이션 영역
+		block navigation
+			include parts/_navigation
+		//- 메인 영역
+		block main
+			include parts/_main
+		//- 사이드바 영역
+		block aside
+		//- 푸터 영역
+		block footer
+			include parts/_footer
+		//- 스크립트(body)
+		block bodyEndScripts

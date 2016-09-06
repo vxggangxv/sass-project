@@ -1,0 +1,22 @@
+{
+  "name": "sass-project-startkit",
+  "version": "0.0.1",
+  "description": "Sass 프로젝트 시작.",
+  "author": "joon9 <vxggangxv@naver.com> (http://toxnsldxn.cafe24.com)",
+  "dependencies": {
+    "del": "^1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-compass": "^2.1.0",
+    "gulp-connect-multi": "^1.0.8",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-if": "^1.2.5",
+    "gulp-jade": "^0.10.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "1.2.4",
+    "gulp-util": "^3.0.1",
+    "gulp-watch": "^3.0.0"
+  }
+}
